@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Comparativo - Cartas dos Gestores{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>Quadro Comparativo</h1>
+    <p class="subtitle">Visao lado a lado de todos os fundos processados</p>
+</div>
+
+{% if dados %}
+<div class="table-wrap">
+<table>
+    <thead>
+        <tr>
+            <th>Fundo</th>
+            <th>Período</th>
+            <th>Rentab. Mês</th>
+            <th>CDI no Mês</th>
+            <th>Acum. Ano</th>
+            <th>Categoria</th>
+            <th>Resumo</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for d in dados %}
+        <tr>
+            <td><a href="/fundo/{{ d.carta.fundo | urlencode }}">{{ d.carta.fundo }}</a></td>
+            <td>{{ d.carta.periodo }}</td>
+            <td>
+                {% set m = d.carta.performance.get('mes', '') %}
+                {% if m %}
+                    {% set mf = m|float %}
+                    <span class="{{ 'perf-positive' if mf >= 0 else 'perf-negative' }}">{{ "+" if mf > 0 }}{{ m }}%</span>
+                {% else %}
+                    <span class="perf-neutral">N/D</span>
+                {% endif %}
+            </td>
+            <td>
+                {% set b = d.carta.performance.get('benchmark_mes', '') %}
+                {% if b %}{{ b }}%{% else %}<span class="perf-neutral">N/D</span>{% endif %}
+            </td>
+            <td>
+                {% set a = d.carta.performance.get('ano', '') %}
+                {% if a %}{{ a }}%{% else %}<span class="perf-neutral">N/D</span>{% endif %}
+            </td>
+            <td><span class="badge badge-gray">{{ d.carta.categoria }}</span></td>
+            <td>
+                {% if d.resumo %}
+                    <span class="badge badge-green">Pronto</span>
+                {% else %}
+                    <span class="badge badge-yellow">Pendente</span>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<div class="section">
+    <p style="color:var(--text3)">Nenhuma carta processada ainda. Faca upload dos PDFs e processe.</p>
+</div>
+{% endif %}
+{% endblock %}

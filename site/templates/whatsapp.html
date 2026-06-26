@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Resumos WhatsApp - Cartas dos Gestores{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>Resumos para WhatsApp</h1>
+    <p class="subtitle">Textos prontos para copiar e compartilhar (4-6 linhas por fundo)</p>
+</div>
+
+{% if resumos %}
+{% set has_any = [] %}
+{% for nome, resumo in resumos.items() %}
+{% if resumo.get('whatsapp') %}
+<div class="whatsapp-box">
+    <button class="copy-btn" onclick="copiar(this)">Copiar</button>
+    <strong>{{ nome }}</strong>
+{{ resumo.whatsapp }}
+</div>
+{% endif %}
+{% endfor %}
+
+{% if not resumos.values()|selectattr('whatsapp')|list %}
+<div class="section">
+    <p style="color:var(--text3)">Nenhum resumo para WhatsApp cadastrado ainda. Processe os PDFs e adicione os resumos.</p>
+</div>
+{% endif %}
+{% else %}
+<div class="section">
+    <p style="color:var(--text3)">Nenhum resumo cadastrado ainda. Processe os PDFs e adicione os resumos.</p>
+</div>
+{% endif %}
+
+<script>
+function copiar(btn) {
+    const box = btn.parentElement;
+    const texto = box.innerText.replace('Copiar', '').trim();
+    navigator.clipboard.writeText(texto);
+    btn.textContent = 'Copiado!';
+    btn.style.background = '#059669';
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.style.background = ''; }, 1500);
+}
+</script>
+{% endblock %}

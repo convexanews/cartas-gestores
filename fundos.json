@@ -1,0 +1,23 @@
+[
+  {"nome": "Kapitalo K10", "gestora": "Kapitalo", "categoria": "Multimercado", "benchmark": "CDI"},
+  {"nome": "ARMOR AXE FIC FIM", "gestora": "Armor Capital", "categoria": "Multimercado", "benchmark": "CDI"},
+  {"nome": "IBIUNA HEDGE STH FIC FIM ACCESS", "gestora": "Ibiuna", "categoria": "Multimercado", "benchmark": "CDI"},
+  {"nome": "LEGACY CAPITAL FIC FIM ACCESS", "gestora": "Legacy Capital", "categoria": "Multimercado", "benchmark": "CDI"},
+  {"nome": "SPX NIMITZ FIC FIM ACCESS", "gestora": "SPX Capital", "categoria": "Multimercado", "benchmark": "CDI"},
+  {"nome": "GENOA CAPITAL SAGRES FIC FIM ACCESS", "gestora": "Genoa Capital", "categoria": "Multimercado", "benchmark": "CDI"},
+  {"nome": "SPX SEAHAWK GLOBAL FIC FIM CP", "gestora": "SPX Capital", "categoria": "Multimercado CP", "benchmark": "CDI"},
+  {"nome": "JGP CORPORATE PLUS FIC FIM CP", "gestora": "JGP", "categoria": "Credito Privado", "benchmark": "CDI"},
+  {"nome": "ARX VINSON FIC FI RF CP", "gestora": "ARX Investimentos", "categoria": "Renda Fixa CP", "benchmark": "CDI"},
+  {"nome": "M8 CREDIT STRATEGY PLUS FIC FIM CP", "gestora": "M8 Partners", "categoria": "Credito Privado", "benchmark": "CDI"},
+  {"nome": "IBIUNA TOTAL CREDIT FIC FIM CP", "gestora": "Ibiuna", "categoria": "Credito Privado", "benchmark": "CDI"},
+  {"nome": "SOLIS CAPITAL ANTARES LIGHT FIC FIM CP", "gestora": "Solis Capital", "categoria": "Credito Privado", "benchmark": "CDI"},
+  {"nome": "QUANTITAS GALAPAGOS FIM", "gestora": "Quantitas", "categoria": "Multimercado", "benchmark": "CDI"},
+  {"nome": "ABSOLUTE HIDRA CDI FIC FI INFRA RF", "gestora": "Absolute", "categoria": "Infra RF", "benchmark": "CDI"},
+  {"nome": "ITAU ACTION DEB INC FIC INFRA RF CP LP", "gestora": "Itau Asset", "categoria": "Infra RF CP", "benchmark": "CDI"},
+  {"nome": "SOLANA LS FIC FIM", "gestora": "Solana Capital", "categoria": "Long Short", "benchmark": "CDI"},
+  {"nome": "Root Capital High Yield FICFIM CrPr", "gestora": "Root Capital", "categoria": "High Yield", "benchmark": "CDI"},
+  {"nome": "Menestys I FICFIDC", "gestora": "Menestys", "categoria": "FIDC", "benchmark": "CDI"},
+  {"nome": "Solis Antares FICFIDC", "gestora": "Solis Capital", "categoria": "FIDC", "benchmark": "CDI"},
+  {"nome": "M8 Credit Advanced FICFIDC", "gestora": "M8 Partners", "categoria": "FIDC", "benchmark": "CDI"},
+  {"nome": "Itau Janeiro Multimercado Dist FICFI RL", "gestora": "Itau Asset", "categoria": "Multimercado", "benchmark": "CDI"}
+]

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}{{ fundo.nome }} - Cartas dos Gestores{% endblock %}
+{% block content %}
+<div style="display:flex;gap:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+    <a href="/" class="btn btn-outline">&#8592; Voltar ao Dashboard</a>
+    {% if carta %}
+    <a href="/download/fundo/{{ fundo.nome | urlencode }}" class="btn btn-primary">&#8595; Baixar Carta Original (PDF)</a>
+    {% endif %}
+</div>
+
+<div class="page-header">
+    <h1>{{ fundo.nome }}</h1>
+    <p class="subtitle">{{ fundo.get('gestora', 'N/D') }} &middot; {{ fundo.get('categoria', 'N/D') }} &middot; Benchmark: {{ fundo.get('benchmark', 'CDI') }}</p>
+</div>
+
+{% if carta %}
+<div class="detail-stats">
+    <div class="detail-stat">
+        <div class="val" style="color:var(--accent);">{{ carta.periodo }}</div>
+        <div class="lbl">Período</div>
+    </div>
+    <div class="detail-stat">
+        {% set perf_mes = carta.performance.get('mes', '') %}
+        {% if perf_mes %}
+            {% set pf = perf_mes|float %}
+            <div class="val {{ 'perf-positive' if pf >= 0 else 'perf-negative' }}">{{ "+" if pf > 0 }}{{ perf_mes }}%</div>
+        {% else %}
+            <div class="val perf-neutral">N/D</div>
+        {% endif %}
+        <div class="lbl">Rentabilidade no Mês</div>
+    </div>
+    <div class="detail-stat">
+        <div class="val" style="color:var(--text2);">{{ carta.performance.get('benchmark_mes', 'N/D') }}{% if carta.performance.get('benchmark_mes') %}%{% endif %}</div>
+        <div class="lbl">CDI no Mês</div>
+    </div>
+    <div class="detail-stat">
+        <div class="val" style="color:var(--text2);">{{ carta.performance.get('ano', 'N/D') }}{% if carta.performance.get('ano') %}%{% endif %}</div>
+        <div class="lbl">Acumulado no Ano</div>
+    </div>
+</div>
+{% endif %}
+
+{% if resumo %}
+{% if resumo.get('pontos_chave') %}
+<div class="section">
+    <h2>Pontos-Chave</h2>
+    <ul style="list-style:none;padding:0;">
+    {% for ponto in resumo.pontos_chave %}
+        <li style="padding:0.6rem 0;border-bottom:1px solid var(--border-light);font-size:0.9rem;line-height:1.7;">
+            <span style="color:var(--accent);font-weight:700;margin-right:0.5rem;">&#9679;</span>{{ ponto }}
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% if resumo.get('performance') %}
+<div class="section">
+    <h2>Performance</h2>
+    <p>{{ resumo.performance }}</p>
+</div>
+{% endif %}
+{% if resumo.get('atribuicao') %}
+<div class="section">
+    <h2>Atribuição de Performance</h2>
+    <p>{{ resumo.atribuicao }}</p>
+</div>
+{% endif %}
+{% if resumo.get('tese_macro') %}
+<div class="section">
+    <h2>Cenário Macro</h2>
+    <p>{{ resumo.tese_macro }}</p>
+</div>
+{% endif %}
+{% if resumo.get('posicionamento') %}
+<div class="section">
+    <h2>Posicionamento e Estratégia</h2>
+    <p>{{ resumo.posicionamento }}</p>
+</div>
+{% endif %}
+{% if resumo.get('riscos') %}
+<div class="section">
+    <h2>Riscos e Pontos de Atenção</h2>
+    <p>{{ resumo.riscos }}</p>
+</div>
+{% endif %}
+{% if resumo.get('observar') %}
+<div class="section">
+    <h2>O que Observar</h2>
+    <p>{{ resumo.observar }}</p>
+</div>
+{% endif %}
+{% elif carta %}
+<div class="section">
+    <h2>Resumo</h2>
+    <p style="color:var(--text3)">Nenhum resumo estruturado para este fundo ainda.</p>
+</div>
+{% endif %}
+
+{% if not carta %}
+<div class="section">
+    <h2>Status</h2>
+    <p style="color:var(--text3)">Nenhum PDF processado para este fundo. Faca upload e processe pela pagina de Upload.</p>
+</div>
+{% endif %}
+{% endblock %}

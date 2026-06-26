@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Cartas dos Gestores{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>Dashboard</h1>
+    <p class="subtitle">Resumo consolidado das cartas dos gestores de fundos</p>
+</div>
+
+<div class="stats">
+    <div class="stat-card highlight">
+        <div class="num">{{ total }}</div>
+        <div class="label">Fundos cadastrados</div>
+    </div>
+    <div class="stat-card">
+        <div class="num">{{ processados }}</div>
+        <div class="label">PDFs processados</div>
+    </div>
+    <div class="stat-card">
+        <div class="num">{{ resumidos }}</div>
+        <div class="label">Resumos prontos</div>
+    </div>
+</div>
+
+<div class="card-grid">
+{% for d in dados %}
+    <a class="fund-card" href="/fundo/{{ d.fundo.nome | urlencode }}">
+        <div class="card-top">
+            <div>
+                <div class="name">{{ d.fundo.nome }}</div>
+                <div class="meta">{{ d.fundo.gestora }} &middot; {{ d.fundo.categoria }}</div>
+            </div>
+            {% if d.tem_carta %}
+                <span class="badge badge-blue">{{ d.carta.periodo }}</span>
+            {% endif %}
+        </div>
+        <div class="perf-row">
+            {% if d.carta and d.carta.performance and d.carta.performance.mes %}
+                {% set val = d.carta.performance.mes | float %}
+                <span class="badge {{ 'badge-green' if val >= 0 else 'badge-red' }}">
+                    {{ "+" if val > 0 }}{{ d.carta.performance.mes }}%
+                </span>
+            {% elif d.tem_carta %}
+                <span class="badge badge-gray">Perf. pendente</span>
+            {% else %}
+                <span class="badge badge-gray">Sem dados</span>
+            {% endif %}
+            {% if d.carta and d.carta.performance and d.carta.performance.benchmark_mes %}
+                <span class="badge badge-yellow">CDI {{ d.carta.performance.benchmark_mes }}%</span>
+            {% endif %}
+            {% if d.tem_resumo %}
+                <span class="badge badge-green">Resumo pronto</span>
+            {% endif %}
+        </div>
+    </a>
+{% endfor %}
+</div>
+{% endblock %}
