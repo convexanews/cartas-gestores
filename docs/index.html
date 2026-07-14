@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Cartas dos Gestores</title>
+    <title>Cartas dos Gestores - Bom Dia Investidor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -447,10 +447,10 @@
             <span class="logo-icon">CG</span>
             Cartas dos Gestores
         </a>
-        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="index.html" class="nav-link">Fundos</a>
         <a href="comparativo/index.html" class="nav-link">Comparativo</a>
         <a href="whatsapp/index.html" class="nav-link">WhatsApp</a>
-        <a  class="nav-link">Upload</a>
+        <a href="https://bomdiainvestidor.com.br" class="nav-link" style="margin-left:auto;color:var(--accent);">&#8592; Bom Dia Investidor</a>
     </nav>
     <div class="container">
         
@@ -458,106 +458,360 @@
         
         
 <div class="page-header">
-    <h1>Dashboard</h1>
-    <p class="subtitle">Resumo consolidado das cartas dos gestores de fundos</p>
+    <h1>Cartas dos Gestores</h1>
+    <p class="subtitle">Veja como cada gestor leu o cenário, onde está posicionado e qual foi o resultado. Resumos extraídos direto das cartas mensais.</p>
 </div>
 
-<div class="stats">
-    <div class="stat-card highlight">
-        <div class="num">21</div>
-        <div class="label">Fundos cadastrados</div>
-    </div>
-    <div class="stat-card">
-        <div class="num">16</div>
-        <div class="label">PDFs processados</div>
-    </div>
-    <div class="stat-card">
-        <div class="num">16</div>
-        <div class="label">Resumos prontos</div>
-    </div>
+<!-- FILTROS -->
+<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+    <button class="filter-btn active" onclick="filtrar('todos')">Todos (16)</button>
+    
+    
+        
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+    
+    
+        
+        <button class="filter-btn" onclick="filtrar('Multimercado')">Multimercado (7)</button>
+    
+        
+        <button class="filter-btn" onclick="filtrar('Multimercado CP')">Multimercado CP (1)</button>
+    
+        
+        <button class="filter-btn" onclick="filtrar('Credito Privado')">Credito Privado (4)</button>
+    
+        
+        <button class="filter-btn" onclick="filtrar('Infra RF')">Infra RF (1)</button>
+    
+        
+        <button class="filter-btn" onclick="filtrar('Infra RF CP')">Infra RF CP (1)</button>
+    
+        
+        <button class="filter-btn" onclick="filtrar('Long Short')">Long Short (1)</button>
+    
+        
+        <button class="filter-btn" onclick="filtrar('FIDC')">FIDC (1)</button>
+    
 </div>
 
-<div class="card-grid">
+<!-- CARDS -->
+<div class="card-grid" id="fundoGrid">
 
-    <a class="fund-card" href="fundo/kapitalo-k10/index.html">
+    <a class="fund-card" href="fundo/solis-capital-antares-light-fic-fim-cp/index.html" data-cat="Credito Privado">
+        <div class="card-top">
+            <div>
+                <div class="name">SOLIS CAPITAL ANTARES LIGHT FIC FIM CP</div>
+                <div class="meta">Solis Capital &middot; Credito Privado</div>
+            </div>
+            
+                <span class="badge badge-blue">N/D</span>
+            
+        </div>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
+            
+                
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+1.41%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
+            
+            
+            
+        </div>
+        
+    </a>
+
+    <a class="fund-card" href="fundo/kapitalo-k10/index.html" data-cat="Multimercado">
         <div class="card-top">
             <div>
                 <div class="name">Kapitalo K10</div>
                 <div class="meta">Kapitalo &middot; Multimercado</div>
             </div>
             
-                <span class="badge badge-blue">05/2026</span>
+                <span class="badge badge-blue">06/2026</span>
             
         </div>
-        <div class="perf-row">
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
             
                 
-                <span class="badge badge-green">
-                    +0.85%
-                </span>
+                <div style="min-width:80px;">
+                    <div class="perf-negative" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">-1.12%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
             
             
-                <span class="badge badge-yellow">CDI 1.07%</span>
             
-            
-                <span class="badge badge-green">Resumo pronto</span>
+                
+                <div style="margin-left:auto;">
+                    
+                        <span class="badge badge-red">&#9660; -2.24pp vs CDI</span>
+                    
+                </div>
             
         </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/armor-axe-fic-fim/index.html">
+    <a class="fund-card" href="fundo/armor-axe-fic-fim/index.html" data-cat="Multimercado">
         <div class="card-top">
             <div>
                 <div class="name">ARMOR AXE FIC FIM</div>
                 <div class="meta">Armor Capital &middot; Multimercado</div>
             </div>
             
-                <span class="badge badge-blue">05/2026</span>
+                <span class="badge badge-blue">06/2026</span>
             
         </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.64%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/ibiuna-hedge-sth-fic-fim-access/index.html">
+    <a class="fund-card" href="fundo/genoa-capital-sagres-fic-fim-access/index.html" data-cat="Multimercado">
         <div class="card-top">
             <div>
-                <div class="name">IBIUNA HEDGE STH FIC FIM ACCESS</div>
-                <div class="meta">Ibiuna &middot; Multimercado</div>
+                <div class="name">GENOA CAPITAL SAGRES FIC FIM ACCESS</div>
+                <div class="meta">Genoa Capital &middot; Multimercado</div>
             </div>
             
-                <span class="badge badge-blue">01/2025</span>
+                <span class="badge badge-blue">06/2026</span>
             
         </div>
-        <div class="perf-row">
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
             
                 
-                <span class="badge badge-green">
-                    +0.53%
-                </span>
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+1.94%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
             
             
-                <span class="badge badge-yellow">CDI 1.01%</span>
             
-            
-                <span class="badge badge-green">Resumo pronto</span>
+                
+                <div style="margin-left:auto;">
+                    
+                        <span class="badge badge-green">&#9650; +0.82pp vs CDI</span>
+                    
+                </div>
             
         </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/legacy-capital-fic-fim-access/index.html">
+    <a class="fund-card" href="fundo/m8-credit-strategy-plus-fic-fim-cp/index.html" data-cat="Credito Privado">
+        <div class="card-top">
+            <div>
+                <div class="name">M8 CREDIT STRATEGY PLUS FIC FIM CP</div>
+                <div class="meta">M8 Partners &middot; Credito Privado</div>
+            </div>
+            
+                <span class="badge badge-blue">06/2026</span>
+            
+        </div>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
+            
+                
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+0.67%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
+            
+            
+            
+                
+                <div style="margin-left:auto;">
+                    
+                        <span class="badge badge-green">&#9650; +0.29pp vs CDI</span>
+                    
+                </div>
+            
+        </div>
+        
+    </a>
+
+    <a class="fund-card" href="fundo/ibiuna-total-credit-fic-fim-cp/index.html" data-cat="Credito Privado">
+        <div class="card-top">
+            <div>
+                <div class="name">IBIUNA TOTAL CREDIT FIC FIM CP</div>
+                <div class="meta">Ibiuna &middot; Credito Privado</div>
+            </div>
+            
+                <span class="badge badge-blue">06/2026</span>
+            
+        </div>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
+            
+            
+            
+        </div>
+        
+    </a>
+
+    <a class="fund-card" href="fundo/itau-action-deb-inc-fic-infra-rf-cp-lp/index.html" data-cat="Infra RF CP">
+        <div class="card-top">
+            <div>
+                <div class="name">ITAU ACTION DEB INC FIC INFRA RF CP LP</div>
+                <div class="meta">Itau Asset &middot; Infra RF CP</div>
+            </div>
+            
+                <span class="badge badge-blue">06/2026</span>
+            
+        </div>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
+            
+                
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+3.58%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
+            
+            
+                <div style="min-width:70px;">
+                    <div style="font-size:1.1rem;font-weight:700;color:var(--text);">0.04%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No ano</div>
+                </div>
+            
+            
+                
+                <div style="margin-left:auto;">
+                    
+                        <span class="badge badge-green">&#9650; +2.38pp vs CDI</span>
+                    
+                </div>
+            
+        </div>
+        
+    </a>
+
+    <a class="fund-card" href="fundo/m8-credit-advanced-ficfidc/index.html" data-cat="FIDC">
+        <div class="card-top">
+            <div>
+                <div class="name">M8 Credit Advanced FICFIDC</div>
+                <div class="meta">M8 Partners &middot; FIDC</div>
+            </div>
+            
+                <span class="badge badge-blue">06/2026</span>
+            
+        </div>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
+            
+                
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+1.18%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
+            
+            
+            
+                
+                <div style="margin-left:auto;">
+                    
+                        <span class="badge badge-green">&#9650; +0.21pp vs CDI</span>
+                    
+                </div>
+            
+        </div>
+        
+    </a>
+
+    <a class="fund-card" href="fundo/itau-janeiro-multimercado-dist-ficfi-rl/index.html" data-cat="Multimercado">
+        <div class="card-top">
+            <div>
+                <div class="name">Itau Janeiro Multimercado Dist FICFI RL</div>
+                <div class="meta">Itau Asset &middot; Multimercado</div>
+            </div>
+            
+                <span class="badge badge-blue">06/2026</span>
+            
+        </div>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
+            
+                
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+2.58%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
+            
+            
+            
+        </div>
+        
+    </a>
+
+    <a class="fund-card" href="fundo/legacy-capital-fic-fim-access/index.html" data-cat="Multimercado">
         <div class="card-top">
             <div>
                 <div class="name">LEGACY CAPITAL FIC FIM ACCESS</div>
@@ -567,205 +821,30 @@
                 <span class="badge badge-blue">05/2026</span>
             
         </div>
-        <div class="perf-row">
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
             
                 
-                <span class="badge badge-green">
-                    +1.48%
-                </span>
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+1.48%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
             
             
-                <span class="badge badge-yellow">CDI 1.07%</span>
+                <div style="min-width:70px;">
+                    <div style="font-size:1.1rem;font-weight:700;color:var(--text);">3.71%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No ano</div>
+                </div>
             
-            
-                <span class="badge badge-green">Resumo pronto</span>
             
         </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/spx-nimitz-fic-fim-access/index.html">
-        <div class="card-top">
-            <div>
-                <div class="name">SPX NIMITZ FIC FIM ACCESS</div>
-                <div class="meta">SPX Capital &middot; Multimercado</div>
-            </div>
-            
-                <span class="badge badge-blue">04/2025</span>
-            
-        </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.02%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.06%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
-    </a>
-
-    <a class="fund-card" href="fundo/genoa-capital-sagres-fic-fim-access/index.html">
-        <div class="card-top">
-            <div>
-                <div class="name">GENOA CAPITAL SAGRES FIC FIM ACCESS</div>
-                <div class="meta">Genoa Capital &middot; Multimercado</div>
-            </div>
-            
-                <span class="badge badge-blue">05/2026</span>
-            
-        </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.96%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
-    </a>
-
-    <a class="fund-card" href="fundo/spx-seahawk-global-fic-fim-cp/index.html">
-        <div class="card-top">
-            <div>
-                <div class="name">SPX SEAHAWK GLOBAL FIC FIM CP</div>
-                <div class="meta">SPX Capital &middot; Multimercado CP</div>
-            </div>
-            
-                <span class="badge badge-blue">03/2026</span>
-            
-        </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +0.09%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.21%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
-    </a>
-
-    <a class="fund-card" href="fundo/jgp-corporate-plus-fic-fim-cp/index.html">
-        <div class="card-top">
-            <div>
-                <div class="name">JGP CORPORATE PLUS FIC FIM CP</div>
-                <div class="meta">JGP &middot; Credito Privado</div>
-            </div>
-            
-                <span class="badge badge-blue">04/2026</span>
-            
-        </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.13%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.13%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
-    </a>
-
-    <a class="fund-card" href="fundo/m8-credit-strategy-plus-fic-fim-cp/index.html">
-        <div class="card-top">
-            <div>
-                <div class="name">M8 CREDIT STRATEGY PLUS FIC FIM CP</div>
-                <div class="meta">M8 Partners &middot; Credito Privado</div>
-            </div>
-            
-                <span class="badge badge-blue">05/2026</span>
-            
-        </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.04%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
-    </a>
-
-    <a class="fund-card" href="fundo/ibiuna-total-credit-fic-fim-cp/index.html">
-        <div class="card-top">
-            <div>
-                <div class="name">IBIUNA TOTAL CREDIT FIC FIM CP</div>
-                <div class="meta">Ibiuna &middot; Credito Privado</div>
-            </div>
-            
-                <span class="badge badge-blue">05/2026</span>
-            
-        </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.97%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
-    </a>
-
-    <a class="fund-card" href="fundo/solis-capital-antares-light-fic-fim-cp/index.html">
-        <div class="card-top">
-            <div>
-                <div class="name">SOLIS CAPITAL ANTARES LIGHT FIC FIM CP</div>
-                <div class="meta">Solis Capital &middot; Credito Privado</div>
-            </div>
-            
-                <span class="badge badge-blue">05/2026</span>
-            
-        </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.16%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
-    </a>
-
-    <a class="fund-card" href="fundo/absolute-hidra-cdi-fic-fi-infra-rf/index.html">
+    <a class="fund-card" href="fundo/absolute-hidra-cdi-fic-fi-infra-rf/index.html" data-cat="Infra RF">
         <div class="card-top">
             <div>
                 <div class="name">ABSOLUTE HIDRA CDI FIC FI INFRA RF</div>
@@ -775,49 +854,50 @@
                 <span class="badge badge-blue">05/2026</span>
             
         </div>
-        <div class="perf-row">
-            
-                
-                <span class="badge badge-green">
-                    +1.13%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
-            
-        </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/itau-action-deb-inc-fic-infra-rf-cp-lp/index.html">
+    <a class="fund-card" href="fundo/jgp-corporate-plus-fic-fim-cp/index.html" data-cat="Credito Privado">
         <div class="card-top">
             <div>
-                <div class="name">ITAU ACTION DEB INC FIC INFRA RF CP LP</div>
-                <div class="meta">Itau Asset &middot; Infra RF CP</div>
+                <div class="name">JGP CORPORATE PLUS FIC FIM CP</div>
+                <div class="meta">JGP &middot; Credito Privado</div>
             </div>
             
-                <span class="badge badge-blue">05/2026</span>
+                <span class="badge badge-blue">04/2026</span>
             
         </div>
-        <div class="perf-row">
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
             
                 
-                <span class="badge badge-red">
-                    -0.51%
-                </span>
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+1.13%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
             
             
-                <span class="badge badge-yellow">CDI 0.97%</span>
+                <div style="min-width:70px;">
+                    <div style="font-size:1.1rem;font-weight:700;color:var(--text);">4.30%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No ano</div>
+                </div>
             
             
-                <span class="badge badge-green">Resumo pronto</span>
+                
+                <div style="margin-left:auto;">
+                    
+                        <span class="badge badge-green">&#9650; +0.00pp vs CDI</span>
+                    
+                </div>
             
         </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/solana-ls-fic-fim/index.html">
+    <a class="fund-card" href="fundo/solana-ls-fic-fim/index.html" data-cat="Long Short">
         <div class="card-top">
             <div>
                 <div class="name">SOLANA LS FIC FIM</div>
@@ -827,75 +907,119 @@
                 <span class="badge badge-blue">04/2026</span>
             
         </div>
-        <div class="perf-row">
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
             
                 
-                <span class="badge badge-green">
-                    +2.32%
-                </span>
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+3.29%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
             
             
-                <span class="badge badge-yellow">CDI 1.09%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
             
         </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/m8-credit-advanced-ficfidc/index.html">
+    <a class="fund-card" href="fundo/spx-nimitz-fic-fim-access/index.html" data-cat="Multimercado">
         <div class="card-top">
             <div>
-                <div class="name">M8 Credit Advanced FICFIDC</div>
-                <div class="meta">M8 Partners &middot; FIDC</div>
+                <div class="name">SPX NIMITZ FIC FIM ACCESS</div>
+                <div class="meta">SPX Capital &middot; Multimercado</div>
             </div>
             
-                <span class="badge badge-blue">05/2026</span>
+                <span class="badge badge-blue">04/2025</span>
             
         </div>
-        <div class="perf-row">
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
             
                 
-                <span class="badge badge-green">
-                    +1.22%
-                </span>
+                <div style="min-width:80px;">
+                    <div class="perf-positive" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">+1.02%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
             
             
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
             
         </div>
+        
     </a>
 
-    <a class="fund-card" href="fundo/itau-janeiro-multimercado-dist-ficfi-rl/index.html">
+    <a class="fund-card" href="fundo/spx-seahawk-global-fic-fim-cp/index.html" data-cat="Multimercado CP">
         <div class="card-top">
             <div>
-                <div class="name">Itau Janeiro Multimercado Dist FICFI RL</div>
-                <div class="meta">Itau Asset &middot; Multimercado</div>
+                <div class="name">SPX SEAHAWK GLOBAL FIC FIM CP</div>
+                <div class="meta">SPX Capital &middot; Multimercado CP</div>
             </div>
             
-                <span class="badge badge-blue">05/2026</span>
+                <span class="badge badge-blue">03/2026</span>
             
         </div>
-        <div class="perf-row">
+        
+    </a>
+
+    <a class="fund-card" href="fundo/ibiuna-hedge-sth-fic-fim-access/index.html" data-cat="Multimercado">
+        <div class="card-top">
+            <div>
+                <div class="name">IBIUNA HEDGE STH FIC FIM ACCESS</div>
+                <div class="meta">Ibiuna &middot; Multimercado</div>
+            </div>
             
-                
-                <span class="badge badge-green">
-                    +1.52%
-                </span>
-            
-            
-                <span class="badge badge-yellow">CDI 1.07%</span>
-            
-            
-                <span class="badge badge-green">Resumo pronto</span>
+                <span class="badge badge-blue">01/2025</span>
             
         </div>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            
+            
+            
+            
+            
+            
+        </div>
+        
     </a>
 
 </div>
+
+<style>
+.filter-btn {
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+</style>
+
+<script>
+function filtrar(cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.fund-card').forEach(card => {
+        if (cat === 'todos' || card.dataset.cat === cat) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
 
     </div>
 </body>

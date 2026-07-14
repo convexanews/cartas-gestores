@@ -2,4 +2,5 @@
 output/*.png
 output/*_crop*
 *.pyc
+pdfs/
 

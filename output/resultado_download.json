@@ -1,0 +1,29 @@
+{
+  "ok": [
+    "Kapitalo K10",
+    "IBIUNA HEDGE STH FIC FIM ACCESS",
+    "GENOA CAPITAL SAGRES FIC FIM ACCESS",
+    "ITAU ACTION DEB INC FIC INFRA RF CP LP",
+    "Itau Janeiro Multimercado Dist FICFI RL"
+  ],
+  "falha": [
+    "LEGACY CAPITAL FIC FIM ACCESS"
+  ],
+  "manual": [
+    "ARMOR AXE FIC FIM",
+    "SPX NIMITZ FIC FIM ACCESS",
+    "SPX SEAHAWK GLOBAL FIC FIM CP",
+    "JGP CORPORATE PLUS FIC FIM CP",
+    "ARX VINSON FIC FI RF CP",
+    "M8 CREDIT STRATEGY PLUS FIC FIM CP",
+    "IBIUNA TOTAL CREDIT FIC FIM CP",
+    "SOLIS CAPITAL ANTARES LIGHT FIC FIM CP",
+    "QUANTITAS GALAPAGOS FIM",
+    "ABSOLUTE HIDRA CDI FIC FI INFRA RF",
+    "SOLANA LS FIC FIM",
+    "Root Capital High Yield FICFIM CrPr",
+    "Menestys I FICFIDC",
+    "Solis Antares FICFIDC",
+    "M8 Credit Advanced FICFIDC"
+  ]
+}

@@ -1,0 +1,149 @@
+[
+  {
+    "fundo": "Kapitalo K10",
+    "pagina_cartas": "https://www.kapitalo.com.br/carta-do-gestor/k10",
+    "padrao_pdf": "https://www.kapitalo.com.br/wp-content/uploads/2022/09/Carta-do-Gestor_K10-{MesNome}{Ano}.pdf",
+    "tipo": "pdf_direto",
+    "notas": "PDFs mensais no site oficial. Padrão de URL varia (traço, underline). Página lista todos."
+  },
+  {
+    "fundo": "ARMOR AXE FIC FIM",
+    "pagina_cartas": "https://armorcapital.com.br/carta-do-gestor/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Cartas organizadas por mês no site. Precisa scraping da página para pegar o link do PDF."
+  },
+  {
+    "fundo": "IBIUNA HEDGE STH FIC FIM ACCESS",
+    "pagina_cartas": "https://www.ibiunainvest.com.br/funds/ibiuna-hedge-sth-fif-cic/",
+    "padrao_pdf": "https://www.ibiunainvest.com.br/wp-content/uploads/fundos/RelatorioMensal_IbiunaHedgeSTHFICFIM.pdf",
+    "tipo": "pdf_fixo",
+    "notas": "PDF com URL fixa que é atualizado todo mês. Também disponível via BTG: investimentos.btgpactual.com/services/api/funds-public/public/fund/533023/download/CARTA"
+  },
+  {
+    "fundo": "LEGACY CAPITAL FIC FIM ACCESS",
+    "pagina_cartas": null,
+    "padrao_pdf": "https://legacywebsite.blob.core.windows.net/site/cartamensal/{Ano}{MesNum}_CartaMensal.pdf",
+    "tipo": "pdf_direto",
+    "notas": "PDFs no Azure Blob. Padrão: 202503_CartaMensal.pdf. Pode variar."
+  },
+  {
+    "fundo": "SPX NIMITZ FIC FIM ACCESS",
+    "pagina_cartas": "https://www.spxcapital.com/fundo/nimitz/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Carta disponível via BTG ou Caixa (CM_6475.pdf). Site SPX requer navegação. Alternativa: portal.btgpactual.com"
+  },
+  {
+    "fundo": "GENOA CAPITAL SAGRES FIC FIM ACCESS",
+    "pagina_cartas": "https://www.genoacapital.com.br/",
+    "padrao_pdf": "https://www.genoacapital.com.br/docs/CartaMensalGenoaCapital_{MesAbrev}{AnoAbrev}.pdf",
+    "tipo": "pdf_direto",
+    "notas": "Padrão: CartaMensalGenoaCapital_Mar26.pdf. MesAbrev=Jan/Fev/Mar... AnoAbrev=26"
+  },
+  {
+    "fundo": "SPX SEAHAWK GLOBAL FIC FIM CP",
+    "pagina_cartas": "https://www.spxcapital.com/fundo/seahawk/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Fundo de crédito da SPX. Carta via BTG ou site SPX."
+  },
+  {
+    "fundo": "JGP CORPORATE PLUS FIC FIM CP",
+    "pagina_cartas": "https://jgp.com.br/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "JGP publica Relatório de Gestão Fundos de Crédito mensal. PDF no site jgp.com.br/wp-content/uploads/. Padrão: JGP_Relatorio-de-Gestao_Fundos-de-Credito_{MesAbrev}{AnoAbrev}.pdf"
+  },
+  {
+    "fundo": "ARX VINSON FIC FI RF CP",
+    "pagina_cartas": "https://www.arxinvestimentos.com.br/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "ARX publica carta do gestor de renda fixa/crédito. PDFs em arxinvestimentos.com.br/content/dam/arxinvestment/documents/general/"
+  },
+  {
+    "fundo": "M8 CREDIT STRATEGY PLUS FIC FIM CP",
+    "pagina_cartas": "https://m8partners.com.br/asset-management/fundos-abertos/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "M8 Partners publica relatórios mensais. PDFs em m8partners.com.br/wp-content/uploads/. Padrão provável: M8-Partners_M8-Credit-Strategy-Plus_Relatorio-Mensal-{Mes}-{Ano}.pdf"
+  },
+  {
+    "fundo": "IBIUNA TOTAL CREDIT FIC FIM CP",
+    "pagina_cartas": "https://www.ibiunainvest.com.br/funds/subclasse-ibiuna-total-credit/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Ibiuna publica na página do fundo. Relatório mensal disponível no site e via plataformas (BTG, XP)."
+  },
+  {
+    "fundo": "SOLIS CAPITAL ANTARES LIGHT FIC FIM CP",
+    "pagina_cartas": "https://solisinvestimentos.com.br/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Solis Investimentos. Documentos podem estar no site ou só via plataformas (XP, BTG, Safra)."
+  },
+  {
+    "fundo": "QUANTITAS GALAPAGOS FIM",
+    "pagina_cartas": "https://www.quantitas.com.br/fundos/quantitas-mult-galapagos/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Quantitas publica cartas mensais no site. Página do fundo tem link para download."
+  },
+  {
+    "fundo": "ABSOLUTE HIDRA CDI FIC FI INFRA RF",
+    "pagina_cartas": null,
+    "padrao_pdf": null,
+    "tipo": "plataforma",
+    "notas": "Absolute/Dhama gestora. Relatório disponível via plataformas (Inter, XP, Safra). Não achei página pública de cartas."
+  },
+  {
+    "fundo": "ITAU ACTION DEB INC FIC INFRA RF CP LP",
+    "pagina_cartas": null,
+    "padrao_pdf": "https://assetfront.arquivosparceiros.cloud.itau.com.br/FND/FICFI55873_Itau_Action_Debentures_Incentivadas.pdf",
+    "tipo": "pdf_fixo",
+    "notas": "PDF com URL fixa no portal Itaú Asset. Atualizado mensalmente. Muito confiável."
+  },
+  {
+    "fundo": "SOLANA LS FIC FIM",
+    "pagina_cartas": "http://solanacapital.com.br/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Solana Capital. Cartas históricas no site mas estrutura antiga. Pode precisar scraping."
+  },
+  {
+    "fundo": "Root Capital High Yield FICFIM CrPr",
+    "pagina_cartas": "https://www.rootcapital.com.br/rootcapitalhy",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "Root Capital publica cartas trimestrais (não mensais). Disponível no site e via BTG."
+  },
+  {
+    "fundo": "Menestys I FICFIDC",
+    "pagina_cartas": null,
+    "padrao_pdf": null,
+    "tipo": "cvm",
+    "notas": "FIDC - relatórios mensais na CVM (dados.cvm.gov.br). Não publica carta de gestor pública. CNPJ: 38.226.673/0001-37"
+  },
+  {
+    "fundo": "Solis Antares FICFIDC",
+    "pagina_cartas": "https://solisinvestimentos.com.br/",
+    "padrao_pdf": null,
+    "tipo": "plataforma",
+    "notas": "FIDC da Solis. Relatórios via plataformas ou CVM. Sem carta pública identificada."
+  },
+  {
+    "fundo": "M8 Credit Advanced FICFIDC",
+    "pagina_cartas": "https://m8partners.com.br/asset-management/fundos-abertos/",
+    "padrao_pdf": null,
+    "tipo": "pagina_com_links",
+    "notas": "FIDC da M8. Relatório mensal em m8partners.com.br/wp-content/uploads/. CVM também tem informes."
+  },
+  {
+    "fundo": "Itau Janeiro Multimercado Dist FICFI RL",
+    "pagina_cartas": null,
+    "padrao_pdf": "https://assetfront.arquivosparceiros.cloud.itau.com.br/FND/FICFI56757_Itau_Janeiro_MM_FICFI.pdf",
+    "tipo": "pdf_fixo",
+    "notas": "PDF fixo no portal Itaú Asset. Carta do gestor separada: assetfront.arquivosparceiros.cloud.itau.com.br/FND/carta-do-gestor-itau-janeiro.pdf"
+  }
+]

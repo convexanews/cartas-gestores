@@ -1,29 +1,30 @@
 {% extends "base.html" %}
-{% block title %}Dashboard - Cartas dos Gestores{% endblock %}
+{% block title %}Cartas dos Gestores - Bom Dia Investidor{% endblock %}
 {% block content %}
 <div class="page-header">
-    <h1>Dashboard</h1>
-    <p class="subtitle">Resumo consolidado das cartas dos gestores de fundos</p>
+    <h1>Cartas dos Gestores</h1>
+    <p class="subtitle">Veja como cada gestor leu o cenário, onde está posicionado e qual foi o resultado. Resumos extraídos direto das cartas mensais.</p>
 </div>
 
-<div class="stats">
-    <div class="stat-card highlight">
-        <div class="num">{{ total }}</div>
-        <div class="label">Fundos cadastrados</div>
-    </div>
-    <div class="stat-card">
-        <div class="num">{{ processados }}</div>
-        <div class="label">PDFs processados</div>
-    </div>
-    <div class="stat-card">
-        <div class="num">{{ resumidos }}</div>
-        <div class="label">Resumos prontos</div>
-    </div>
+<!-- FILTROS -->
+<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+    <button class="filter-btn active" onclick="filtrar('todos')">Todos ({{ dados|length }})</button>
+    {% set cats = [] %}
+    {% for d in dados %}
+        {% if d.fundo.categoria not in cats %}
+            {% if cats.append(d.fundo.categoria) %}{% endif %}
+        {% endif %}
+    {% endfor %}
+    {% for cat in cats %}
+        {% set count = dados|selectattr('fundo.categoria', 'equalto', cat)|list|length %}
+        <button class="filter-btn" onclick="filtrar('{{ cat }}')">{{ cat }} ({{ count }})</button>
+    {% endfor %}
 </div>
 
-<div class="card-grid">
-{% for d in dados %}
-    <a class="fund-card" href="/fundo/{{ d.fundo.nome | urlencode }}">
+<!-- CARDS -->
+<div class="card-grid" id="fundoGrid">
+{% for d in dados|sort(attribute='carta.periodo', reverse=true) %}
+    <a class="fund-card" href="/fundo/{{ d.fundo.nome | urlencode }}" data-cat="{{ d.fundo.categoria }}">
         <div class="card-top">
             <div>
                 <div class="name">{{ d.fundo.nome }}</div>
@@ -33,25 +34,68 @@
                 <span class="badge badge-blue">{{ d.carta.periodo }}</span>
             {% endif %}
         </div>
-        <div class="perf-row">
-            {% if d.carta and d.carta.performance and d.carta.performance.mes %}
-                {% set val = d.carta.performance.mes | float %}
-                <span class="badge {{ 'badge-green' if val >= 0 else 'badge-red' }}">
-                    {{ "+" if val > 0 }}{{ d.carta.performance.mes }}%
-                </span>
-            {% elif d.tem_carta %}
-                <span class="badge badge-gray">Perf. pendente</span>
-            {% else %}
-                <span class="badge badge-gray">Sem dados</span>
+        {% if d.carta and d.carta.performance %}
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            {% set mes = d.carta.performance.get('mes', '') %}
+            {% set bench = d.carta.performance.get('benchmark_mes', '') %}
+            {% set ano = d.carta.performance.get('ano', '') %}
+            {% if mes %}
+                {% set mf = mes|float %}
+                <div style="min-width:80px;">
+                    <div class="{{ 'perf-positive' if mf >= 0 else 'perf-negative' }}" style="font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;">{{ "+" if mf > 0 }}{{ mes }}%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No mês</div>
+                </div>
             {% endif %}
-            {% if d.carta and d.carta.performance and d.carta.performance.benchmark_mes %}
-                <span class="badge badge-yellow">CDI {{ d.carta.performance.benchmark_mes }}%</span>
+            {% if ano %}
+                <div style="min-width:70px;">
+                    <div style="font-size:1.1rem;font-weight:700;color:var(--text);">{{ ano }}%</div>
+                    <div style="font-size:0.65rem;color:var(--text3);text-transform:uppercase;font-weight:600;letter-spacing:0.04em;">No ano</div>
+                </div>
             {% endif %}
-            {% if d.tem_resumo %}
-                <span class="badge badge-green">Resumo pronto</span>
+            {% if mes and bench %}
+                {% set diff = mf - bench|float %}
+                <div style="margin-left:auto;">
+                    {% if diff >= 0 %}
+                        <span class="badge badge-green">&#9650; {{ "+%.2f"|format(diff) }}pp vs CDI</span>
+                    {% else %}
+                        <span class="badge badge-red">&#9660; {{ "%.2f"|format(diff) }}pp vs CDI</span>
+                    {% endif %}
+                </div>
             {% endif %}
         </div>
+        {% endif %}
     </a>
 {% endfor %}
 </div>
+
+<style>
+.filter-btn {
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+</style>
+
+<script>
+function filtrar(cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.fund-card').forEach(card => {
+        if (cat === 'todos' || card.dataset.cat === cat) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
 {% endblock %}
